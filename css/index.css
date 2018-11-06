@@ -1,0 +1,239 @@
+.main
+{
+  height : 100vh;
+}
+
+.color1
+{
+	background-color: #87a8d0;
+}
+
+.fontIndie
+{
+	font-family: 'Indie Flower', cursive!important;
+}
+
+
+.info
+{
+  width: 100%!important;
+  height: 100%!important;
+  background-color: #87a8d0;
+}
+
+.actions
+{
+  width: 100%!important;
+  height: 100%!important;
+  background-color: #b9ceeb;
+}
+
+.titlepage > h1
+{
+	margin-top: 12%;
+	font-family: 'Anton', sans-serif;
+}
+
+.information 
+{
+	margin-top: 8%;
+}
+
+.information > div > p
+{
+	font-family: 'Indie Flower', cursive;
+	font-size: 25px;
+}
+
+.sectionaction > h3
+{
+	font-family: 'Indie Flower', cursive;
+	font-size: 25px;
+	margin-top: 5%;
+}
+
+
+
+body {
+  background:#34495e;
+}
+
+.conteneur {
+  
+  
+  
+}
+
+.text-muted {
+    color: #34495e!important;
+}
+
+
+
+.circle {
+  background:transparent;
+  margin:auto;
+  width:300px;
+  height:300px;
+  border:8px solid #12826c;
+  border-radius:50%;
+  position:relative;
+  -webkit-animation:animation 12s infinite linear;
+  animation:animation 12s infinite linear;
+}
+
+.circle:hover {
+  animation-play-state:paused;
+  -webkit-animation-play-state:paused; /* Safari and Chrome */
+}
+
+.point_general {
+  width:12px;
+  height:12px;
+  position:absolute;
+  border-radius:50%;
+  background:#1abc9c;
+  border:6px solid #16a085;
+}
+
+.point_general:after {
+  width:0px;
+  height:0px;
+  position:absolute;
+  top:0px;
+  left:0px;
+  content:'';
+  background:#1abc9c;
+  opacity:0;
+  border-radius:50%;
+  -webkit-transition:all .4s ease;
+  transition:all .4s ease;
+}
+
+.point_general:hover:after {
+ opacity:0.8;
+  width:200px;
+  height:200px;
+  top:-94px;
+  left:-94px;
+}
+
+.texte {
+  opacity:0;
+  position:absolute;
+  text-align:center;
+  top:-50px;
+  left:-50px;
+  width:110px;
+  height:110px;
+  
+  color:#ecf0f1;
+  font-family: 'Indie Flower', cursive;
+  font-size: 17px;
+  z-index:10;
+  -webkit-transition:opacity .2s 0s ease;
+  transition:opacity .2s 0s ease;
+  -webkit-animation:animation2 12s infinite linear;
+  animation:animation2 12s infinite linear;/*Safari and Chrome*/
+}
+
+.point_general:hover .texte {
+  opacity:1;
+  -webkit-transition:opacity .4s .4s ease;
+  transition:opacity .4s .4s ease;
+}
+
+.circle:hover .texte {
+  animation-play-state:paused;
+  -webkit-animation-play-state:paused; /* Safari and Chrome */
+}
+
+.point1 {
+    top: 135px;
+    left: -15px;
+}
+
+/*.point5:after {
+  content:'Plerosque et est copia';
+  text-align:center;
+  padding:50px 0 0 0;
+}*/
+
+.point2 {
+      top: -15px;
+    left: 140px;
+}
+
+.point3 {
+     top: 130px;
+    right: -13px;
+}
+
+.point4 {
+     top: 286px;
+    right: 135px;
+}
+
+.login
+{
+	 background-color: #16a085;
+	 height: 27rem;
+	 border-radius: 5px;
+}
+
+.actionssections
+{
+	cursor: pointer;
+}
+
+.required {
+    color: #a94442;
+}
+
+.required:after {
+    content: " *";
+}
+
+
+
+@keyframes animation
+{
+0% {transform:rotate(0deg);}
+100% {transform:rotate(360deg);}
+}
+
+@-webkit-keyframes animation /*Safari and Chrome*/
+{
+0% {-webkit-transform:rotate(0deg);}
+100% {-webkit-transform:rotate(360deg);}  
+}
+
+@keyframes animation2
+{
+0% {transform:rotate(0deg);}
+100% {transform:rotate(-360deg);}
+}
+
+@-webkit-keyframes animation2 /*Safari and Chrome*/
+{
+0% {-webkit-transform:rotate(0deg);}
+100% {-webkit-transform:rotate(-360deg);}
+
+
+ z-index: 100;
+    position: fixed;
+    background: #b25f48;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+
+    display: block;

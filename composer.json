@@ -1,0 +1,13 @@
+{
+    "name": "asus/uptoftp",
+    "authors": [
+        {
+            "name": "Develov",
+            "email": "beniro_vielma@hotmail.com"
+        }
+    ],
+    "require": {
+        "components/jquery": "^3.3",
+        "twbs/bootstrap": "^4.1"
+    }
+}

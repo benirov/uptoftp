@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UptoFTP | login & register</title>
+</head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="./css/index.css">
+<link href="https://fonts.googleapis.com/css?family=Anton|Indie+Flower" rel="stylesheet">
+<body>
+	<main class="main">
+		<section class="container-fluid">
+			<div class="row main">
+				<div class="col-sm-12  col-md-6  col-xs-6 info">
+					<div class="container  titlepage">
+						<h1 class="text-center  fontIndie text-uppercase">Up To FTP</h1>
+					</div>
+					<div class="container-fluid information">
+						<div class="conteneur">
+						  <div class="circle">
+						    <div class="point_general point1">
+						      <span class="texte">Simple y facil. tu FTP siempre a tu alcance</span>
+						    </div>
+						    <div class="point_general point2">
+						      <span class="texte">Sube tus documentos mas importantes</span>
+						    </div>
+						    <div class="point_general point3">
+						      <span class="texte">Puedes iniciar sesion en todas tus cuentas FTP</span>
+						    </div>
+						    <div class="point_general point4">
+						      <span class="texte">Conparte tus documentos en cualquier momento</span>
+						    </div>
+						    
+						    
+						   </div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-sm-12  col-md-6  col-xs-6 actions">
+					<aside class="container-fluid">
+						<div class="container sectionaction">
+							<h3 class="text-center">inicia sesion o registrate</h3>
+						</div>
+						<div id="sectionLogin" class="container">
+							<div class="row">
+								<div class="login  col-sm-12   col-md-8 offset-md-2  col-lg-8  offset-lg-2  col-xs-6  offset-xs-3  text-center">
+									<form id="sesion">
+										<div class="row">
+												<div class="col-sm-12 col-lg-7 col-md-12 col-xs-8  mx-auto  pt-5">
+													<label for="email" class="">Usuario</label>
+													<input id="email" class="form-control Requerido  RegCorreo" type="text" name="email" placeholder="correo de usuario" maxlength="20" required>
+													<span for="email" class="help-block text-muted"></span>
+												</div>
+												<div class="col-sm-12 col-lg-7 col-md-12 col-xs-8  mx-auto  pt-5">
+													<label for="passworduser" class="">Contraseña</label>
+													<input id="passworduser" class="form-control Requerido  RegClave" type="password" name="password" placeholder="contraseña" maxlength="25" required>
+													<span for="passworduser" class="help-block text-muted"></span>
+												</div>
+												<div class="col-sm-12 col-lg-7 col-md-12 col-xs-8  mx-auto  pt-5">
+												<button type="button" class="btn color1 submit" data-action="sesion">iniciar sesiòn</button>
+												</div>
+												<div class="col-sm-12 col-lg-7 col-md-12 col-xs-8  mx-auto  pt-3">
+												<p class="actionssections" data-section="sectionRegistro">ò registrate</p>
+												</div>
+										</div>
+										</form>
+								</div>
+							</div>
+						</div>
+						<div id="sectionRegistro"  class="registro d-none">
+							<div class="row">
+								<div class="login  col-sm-12   col-md-8 offset-md-2  col-lg-8  offset-lg-2  col-xs-6  offset-xs-3  text-center">
+									<form id="registro">
+										<div class="row">
+												<div class="col-sm-12 col-lg-7 col-md-12 col-xs-8  mx-auto  pt-5">
+													<label for="emailuser" class="">Correo</label>
+													<input id="emailuser" class="form-control Requerido  RegCorreo" type="text" name="emailuser" placeholder="correo de usuario" maxlength="20" required>
+													<span for="emailuser" class="help-block text-muted"></span>
+												</div>
+												<div class="col-sm-12 col-lg-7 col-md-12 col-xs-8  mx-auto  pt-5">
+													<label for="password" class="">contraseña</label>
+													<input id="password" class="form-control Requerido  RegClave" type="password" name="password" placeholder="contraseña" maxlength="25" required>
+													<span for="password" class="help-block text-muted"></span>
+												</div>
+												<div class="col-sm-12 col-lg-7 col-md-12 col-xs-8  mx-auto  pt-5">
+												<button type="button" class="btn color1  submit" data-action="registro">Registrarse</button>
+												</div>
+												<div class="col-sm-12 col-lg-7 col-md-12 col-xs-8  mx-auto  pt-3">
+												<p class="actionssections" data-section="sectionLogin">ò iniciar sesiòn</p>
+												</div>
+										</div>
+										</form>
+								</div>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
+			
+			
+		</section>
+		<div class="back_top_desktop" style="display: block;"><span class="up-arrow"></span></div>
+	</main>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="./lib/notify.js"></script>
+
+<script src="js/util.js"></script>
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		$(".actionssections").click(function()
+		{
+			let section = $(this).data('section');
+			let sectiontwo = 'sectionRegistro';
+			if(section == 'sectionRegistro')
+			{
+				sectiontwo = 'sectionLogin';
+			}
+			setTimeout(function() {
+				// $("#"+sectiontwo).addClass("d-none");
+		        $("#"+sectiontwo).fadeOut(1500);
+		        // $("#"+sectiontwo).removeClassClass("d-none");
+		        // $("#"+section).addClass("d-none");
+		        
+		    },1000);
+		 
+		    setTimeout(function() {
+		        $("#"+section).fadeIn(1500);
+		        $("#"+section).removeClass("d-none");
+		        $("#"+sectiontwo).addClass("d-none");
+		    },2000);
+
+		});
+
+
+		$(".submit").click(function()
+		{
+			let formName =$(this).data('action');
+
+			EvalRegV2($("#"+$(this).data('action')), function(bResp)
+			{
+				if(bResp)
+				{
+					console.log(SerializeForm($("#"+formName)));
+					let data = BuildForm(SerializeForm($("#"+formName)));
+					console.log(data);
+					if(formName == 'sesion')
+					{
+						console.log("aqui")
+						getSessionUser(data);
+					}
+				}
+
+			})
+
+		});
+
+
+		function getSessionUser(data)
+		{
+			$.when(postQuery('ajax/login.php', data, true)).done(function(sResp)
+			{
+				console.log(sResp);
+			})
+		}
+
+
+});
+</script>
+</html>
