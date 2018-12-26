@@ -713,31 +713,6 @@ function postQuery(sUrl, oFd, LoadModal)
             {
                 $('.container-modal').hide();
             }
-        },
-        error: function (error) 
-        {
-            if(LoadModal == 1)
-            {
-                $('.container-modal').hide();
-            }
-            console.log(error);
-            
-            if(error.status == 422)
-            {
-                $.each(error.responseJSON.error, function(index, name)
-                {
-                    notify(name,   "info", "exclamation-triangle");
-                });
-            }
-            else
-            {
-                notify("Ocurrio un error, vuelve a intentarlo",   "warning", "exclamation-triangle");
-            }
-            // console.log(error);
-           // if(LoadModal == 1)
-           //  {
-           //      $('#modal-loader').modal('hide');
-           //  }
         }
     });
 }

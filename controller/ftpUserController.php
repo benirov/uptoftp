@@ -48,9 +48,16 @@ class ftpUserController extends ftp
 			
 	}
 
-	public function conectionHostFtp($data)
+	public function updateFtpUserDataController($data)
 	{
-
+		// $arrayField = array("user","password");
+		// $util = new util;
+		
+		// if($util->Validate($data, $arrayField))
+		// {
+			return  $this->UpdateDataFtp($data);
+		// }
+			
 	}
 
 	public function conectionHostFtp($data)
@@ -70,5 +77,5 @@ class ftpUserController extends ftp
 }
 
 
-$user = new ftpUserController;
-$user->getftpUserDataController();
+// $user = new ftpUserController;
+// $user->getftpUserDataController();

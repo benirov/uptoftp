@@ -4,13 +4,16 @@ namespace controller\userController;
 
  include '../model/user.php';
  include '../middleware/Util.php';
+ // include '../traits/jsonResponser.php';
 
 
  use model\user\user as user;
  use middleware\Util\util as util;
+ // use Traits\jsonResponser\JsonResponser;
 
 class userController extends user
 {
+	// use JsonResponser;
 	// private User;
 	// private password;
 
@@ -29,10 +32,13 @@ class userController extends user
 		$arraydata = array("user" => $User, "password" => $password); 
 		$arrayField = array("user","password");
 		$util = new util;
-		
-		if($util->Validate($arraydata, $arrayField))
+		// var_dump($util->Validate($arraydata, $arrayField));
+		if($util->Validate($arraydata, $arrayField)[1])
 		{
 			return  $this->getUser($User, $password);
+		}else
+		{
+			return $this->validateResponse($util->Validate($arraydata, $arrayField)[0]);
 		}
 	}
 

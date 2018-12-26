@@ -6,15 +6,17 @@ class util
 	public function Validate($datauser, $fieldRequire)
 	{
 		$flag = true;
+		$fields = [];
 		foreach($fieldRequire as $key)
 		{
 			if($datauser[$key] == '')
 			{
+				array_push($fields, $key);
 				$flag = false;
 			}
 		}
-
-		return $flag;
+		// array_push($fields, $flag);
+		return [$fields, $flag];
 	}
 }
 
