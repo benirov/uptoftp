@@ -4,6 +4,6 @@ include '../controller/ftpUserController.php';
 use controller\ftpUserController\ftpUserController as ftpUserController;
 
 $user = new ftpUserController;
-return $user->getftpUserDataController($_GET["ftp"]);
+return $user->getftpUserAcountController();
 exit();
 ?>

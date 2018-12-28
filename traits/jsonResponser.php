@@ -21,6 +21,12 @@ trait JsonResponser
 		echo json_encode(['code' => 200, 'message' => "la consulta fue exitosa"]);
 	}
 
+	public function errorResponseInfo()
+	{
+		
+		echo json_encode(['code' => 400, 'message' => "Error en la consulta"]);
+	}
+
 	public function validateResponse($data)
 	{
 		

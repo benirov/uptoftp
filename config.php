@@ -1,6 +1,7 @@
 <?php
-	define("SERVER", "localhost");
-	define("PORT", 80);
-	define("USER", "id5407540_userprueba");
-	define("DBNAME", "id5407540_ftp");
+	define("SERVER", "sql10.freemysqlhosting.net");
+	define("PORT", 3306);
+	define("USER", "sql10271851");
+	define("PASSWORD", "g3S37FuW8Q");
+	define("DBNAME", "sql10271851");
 ?>

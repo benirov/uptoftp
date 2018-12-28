@@ -18,7 +18,7 @@ class Conection
 		try
 		  {
 		    // $connectionPDO = new \PDO('mysql:host='.constant(SERVER).';dbname='constant(DBNAME).'', constant(USER), constant(PASSWORD));
-		    $connectionPDO = new PDO('mysql:host=localhost;dbname=ftp', "root", "");
+		    $connectionPDO = new PDO('mysql:host='.SERVER.':'.PORT.';dbname='.DBNAME, USER, PASSWORD);
 		    // $pdo = new PDO('mysql:host=localhost;dbname=user', "", "");
 		    $connectionPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		    return $connectionPDO;

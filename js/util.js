@@ -1,3 +1,5 @@
+$(".select2").select2();
+
 function CheckInfoNavegador()
 {
 	if(navigator.userAgent.toLowerCase().indexOf("opera") >= 0 || navigator.userAgent.toLowerCase().indexOf("presto") >= 0)

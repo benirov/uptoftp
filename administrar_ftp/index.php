@@ -15,7 +15,7 @@ $renderHTML = new renderHTML;
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="../lib/AdminLTE-2.4.5/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../lib/AdminLTE-2.4.5/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <!-- Ionicons -->
   <link rel="stylesheet" href="../lib/AdminLTE-2.4.5/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
@@ -23,6 +23,10 @@ $renderHTML = new renderHTML;
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../lib/AdminLTE-2.4.5/dist/css/skins/_all-skins.min.css">
+
+  <!-- select2 -->
+  <link rel="stylesheet" href="../lib/AdminLTE-2.4.5/bower_components/select2/dist/css/select2.min.css">
+  
 
   <!-- style app -->
   <link rel="stylesheet" href="../css/app.css">
@@ -58,13 +62,32 @@ $renderHTML = new renderHTML;
         <div class="container">
           <form id="formUser" class="form-horizontal">
             <div class="box-body container">
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="form-group">
+                      <label for="ftp" class="control-label">Cuentas FTP</label>
+                        <select id="ftp"  class="select2" style="width: 100%">
+                          <option value=0>seleccione una cuenta FTP</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div class="box-footer">
+                      <label for="ftp" class="control-label"></label>
+                      <button id="addFTP" type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#ModalAddFTP"><i class="fas fa-plus-square"></i></button>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <div id="divForm" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                   <div class="form-group">
                     <label for="hostName" class="col-sm-5 control-label">Host Name</label>
 
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                      <input type="text" class="form-control " id="hostName" name="hostName" placeholder="Host Name">
+                      <input type="text" class="form-control Requerido" id="hostName" name="hostName" placeholder="Host Name">
                       <span for="hostName" class="help-block text-muted"></span>
                     </div>
                   </div>
@@ -302,6 +325,70 @@ $renderHTML = new renderHTML;
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
+  <!-- Modal Add FTP -->
+  <div class="modal fade" id="ModalAddFTP"tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Agregar Cuenta FTP</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="formAddFTP" class="form-horizontal">
+            <div class="wrapper">
+              <div  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label for="hostNameFTP" class="col-sm-5 control-label">Host Name</label>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <input type="text" class="form-control Requerido" id="hostNameFTP" name="hostName" placeholder="Host Name">
+                      <span for="hostNameFTP" class="help-block text-muted"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                  <label for="PasswordFTP" class="col-sm-2 control-label">Password</label>
+
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input type="password" class="form-control Requerido RegClave" id="PasswordFTP" name="Password" placeholder="Password">
+                    <span for="PasswordFTP" class="help-block text-muted"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                  <label for="UserNameFTP" class="col-sm-5 control-label">User name</label>
+
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input type="text" class="form-control Requerido RegUserFTP" id="UserNameFTP" name="UserName" placeholder="UserName">
+                    <span for="UserNameFTP" class="help-block text-muted"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                  <label for="" class="col-sm-5 control-label">&nbsp</label>
+
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <button id="testingFTP" type="button" class="btn btn-primary">Testear conexion</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button id="SaveFTP" type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal Add FTP -->
 </div>
 <!-- ./wrapper -->
 
@@ -322,16 +409,33 @@ $renderHTML = new renderHTML;
 <!-- <script src="../lib/AdminLTE-2.4.5/dist/js/pages/dashboard.js"></script> -->
 <!-- AdminLTE for demo purposes -->
 
+<!-- Select2 -->
+<script src="../lib/AdminLTE-2.4.5/bower_components/select2/dist/js/select2.full.min.js"></script>
+
 <!-- notify -->
 <script src="../lib/notify.js"></script>
 <script src="../js/util.js"></script>
-<script src="../js/user.js"></script>
+<script src="../js/ftp.js"></script>
 
 <script>
   $(document).ready(function()
   {
-    var user = new User;
-    user.getDataUser();
+    var ftp = new Ftp;
+    ftp.getFtpAcount();
+
+    $("#ftp").change(function()
+    {
+      console.log($(this).val())
+      if($(this).val() != 0 && $(this).val() != '')
+      {
+        ftp.getDataUser($(this).val());
+      }
+    })
+
+    $("#addFTP").click(function()
+    {
+      
+    });
 
     $("#save").click(function()
     {
@@ -341,10 +445,30 @@ $renderHTML = new renderHTML;
         {
           let data = SerializeForm($("#formUser"));
           Formdata = BuildForm(data);
-          user.saveDataUser(Formdata, user);
+          ftp.updateDataUser(Formdata, ftp);
         }
       })
-    })
+    });
+
+    $("#SaveFTP").click(function()
+    {
+      EvalRegV2($("#formAddFTP"), function(bResp)
+      {
+        if(bResp)
+        {
+          let data = SerializeForm($("#formAddFTP"));
+          Formdata = BuildForm(data);
+          ftp.saveDataUser(Formdata, ftp);
+        }
+      })
+    });
+
+    $("#testingFTP").click(function()
+    {
+        ftp.testConection();
+    });
+
+
   })
 </script>
 
