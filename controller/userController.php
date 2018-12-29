@@ -42,9 +42,15 @@ class userController extends user
 		}
 	}
 
+
+	public function getUserDataController()
+	{
+		return  $this->getUserData();
+	}
+
 	public function addUserController($data)
 	{
-		$arrayField = array("user","password");
+		$arrayField = array("emailuser","password");
 		$util = new util;
 		
 		if($util->Validate($data, $arrayField))
@@ -53,6 +59,22 @@ class userController extends user
 		}
 			
 	}
+
+	public function updateUserDataController($data)
+	{
+		// var_dump($data);
+		// exit();
+		$arrayField = array("emailUser","Password");
+		$util = new util;
+		
+		if($util->Validate($data, $arrayField))
+		{
+			return  $this->updatedUser($data);
+		}
+			
+	}
+
+	
 }
 
 

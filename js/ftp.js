@@ -12,6 +12,11 @@ class Ftp
 				$("#ftp").select2({ data: sResp.data});
 				// $("#ftp").append("<option value='0' selected>Seleccione una cuenta FTP</option>");
 			}
+			else
+			{
+				notify("actualmente no posee cuentas FTP registradas", "warning");
+				$('#ftp').empty();
+			}
 		})
 	}
 	getDataUser(ftp)
@@ -20,7 +25,7 @@ class Ftp
 		{
 			if(sResp.code == 200)
 			{
-				$("#idUser").val(sResp.data.idUser);
+				$("#idFtp").val(sResp.data.id);
 				$("#hostName").val(sResp.data.hostftp);
 				$("#Password").val(sResp.data.passwordftp);
 				$("#UserName").val(sResp.data.userftp);
@@ -83,10 +88,30 @@ class Ftp
 			if(sResp.code == 200)
 			{
 				notify("Conexion a cuenta FTP Exitosa", "success");
+
 			}
 			else
 			{
 				notify("No se pudo conectar a la cuenta FTP", "error");	
+			}
+
+		})
+	}
+
+	deletedAccount(data, ftp)
+	{
+		$.when(postQuery('../ajax/postDeletedFTP.php', data, true)).done(function(sResp)
+		{
+			if(sResp.code == 200)
+			{
+				notify("Datos de cuenta FTP eliminados", "success");
+				$("#formUser input").val('');
+				$("#divForm").addClass("hidden");
+				ftp.getFtpAcount()
+			}
+			else
+			{
+				notify("Error al elimianar datos de cuentaFTP", "error");	
 			}
 
 		})

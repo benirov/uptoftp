@@ -76,12 +76,25 @@ class ftpUserController extends ftp
 			
 	}
 
+	public function deletedFtpUserDataController($data)
+	{
+		$arrayField = array("idFtp");
+		$util = new util;
+		
+		if($util->Validate($data, $arrayField))
+		{
+			return  $this->DeletedDataFtp($data);
+		}
+			
+	}
+
+
 	public function conectionHostFtp($data)
 	{
-		$conection = ftp_connect($data["hostName"]);
-		if($conection)
+		if(@ftp_connect($data["hostName"]))
 		{
-			return $conection;
+			$connect = ftp_connect($data["hostName"]);
+			return $connect;
 		}
 		else
 		{
@@ -118,6 +131,10 @@ class ftpUserController extends ftp
 			{
 				return $this->errorResponseInfo();
 			}
+		}
+		else
+		{
+			return $this->errorResponseInfo();
 		}
 	}
 

@@ -635,7 +635,7 @@ function getQuery(sUrl, sType, sData, bAsync, LoadModal)
         {
             if(LoadModal == 1)
             {
-                $('.container-modal').show();
+                $('.modalSpinner').show();
             }
         },
         success: function (sResp)
@@ -646,7 +646,7 @@ function getQuery(sUrl, sType, sData, bAsync, LoadModal)
         {
             if(LoadModal == 1)
             {
-                $('.container-modal').hide();
+                $('.modalSpinner').hide();
             }
             if(textstatus==="timeout")
             {
@@ -662,7 +662,7 @@ function getQuery(sUrl, sType, sData, bAsync, LoadModal)
         {
             if(LoadModal == 1)
             {
-                $('.container-modal').hide();
+                $('.modalSpinner').hide();
             }
         }
     });
@@ -683,7 +683,7 @@ function postQuery(sUrl, oFd, LoadModal)
         {
             if(LoadModal == 1)
             {
-                $('.container-modal').show();
+                $('.modalSpinner').show();
             }
         },
         success: function (sResp)
@@ -694,7 +694,7 @@ function postQuery(sUrl, oFd, LoadModal)
         {
             if(LoadModal == 1)
             {
-                $('.container-modal').hide();
+                $('.modalSpinner').hide();
             }
             console.log(message);
             console.log(xmlhttprequest);
@@ -713,7 +713,7 @@ function postQuery(sUrl, oFd, LoadModal)
         {
            if(LoadModal == 1)
             {
-                $('.container-modal').hide();
+                $('.modalSpinner').hide();
             }
         }
     });

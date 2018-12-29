@@ -2,7 +2,6 @@
 namespace model\ftp;
 
  include 'user.php';
- session_start();
 
  use model\user\user as user;
  use \PDO;
@@ -67,7 +66,7 @@ public function UpdateDataFtp($data)
 	// var_dump($data);
 	$query = "update ftpdata set hostftp=?, userftp=?, passwordftp=? where id=?";
 	$queryexecute= $conection->prepare($query);
-	$queryexecute->execute([$data["hostName"], $data["UserName"], $data["Password"], $data["idUser"]]);
+	$queryexecute->execute([$data["hostName"], $data["UserName"], $data["Password"], $_SESSION['idUser']]);
 	if($queryexecute)
 	{
 		return $this->successResponseInfo();
@@ -92,6 +91,22 @@ public function AddUserFTP($data)
 	$queryexecute->execute();
 	// var_dump($queryexecute);
 	// exit();
+	if($queryexecute)
+	{
+		return $this->successResponseInfo();
+	}
+	else
+	{
+		return $this->emptyResponse();
+	}
+}
+
+public function DeletedDataFtp($data)
+{
+	$conection = $this->getConection();
+	$query = "DELETE from ftpdata where  id=?";
+	$queryexecute= $conection->prepare($query);
+	$queryexecute->execute([$data["idFtp"]]);
 	if($queryexecute)
 	{
 		return $this->successResponseInfo();

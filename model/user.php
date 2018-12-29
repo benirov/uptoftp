@@ -49,18 +49,59 @@ class user extends conection
 		}
 	}
 
+	public function getUserData()
+	{
+		$conection = $this->getConection();
+		$data = array("id" => $_SESSION['idUser']);
+		// var_dump($data);
+		$query = $conection->prepare("CALL sp_getUserData(?)");
+		$query->bindParam(1, $data["id"], PDO::PARAM_STR);
+		$query->execute();
+		if($query)
+		{
+			return $this->successResponse($query->fetch(PDO::FETCH_ASSOC));
+		}
+		else
+		{
+			return $this->emptyResponse();
+		}
+	}
+
 
 	public function addUser($Userdata)
 	{
 		$conection = $this->getConection();
-		$data = array("name" => $User, "password" => $Password);
 		$query = $conection->prepare("CALL sp_addUser(?,?)");
-		$query->bindParam(1, $Userdata["name"], PDO::PARAM_STR);
+		$query->bindParam(1, $Userdata["emailuser"], PDO::PARAM_STR);
 		$query->bindParam(2, $Userdata["password"], PDO::PARAM_STR);
 		// $query->bindParam("ss", $data["name"], $data["password"]);
-		$query->execute();
-		// $datauser = $query->fetch(PDO::FETCH_ASSOC);
-    	return json_encode($datauser);
+		if($query->execute())
+		{
+			return $this->successResponseInfo();
+		}
+		else
+		{
+			return $this->emptyResponse();
+		}
+    	// return json_encode($datauser);
+		
+	}
+
+	public function updatedUser($Userdata)
+	{
+		$conection = $this->getConection();
+		$query = "UPDATE user SET user=?, password=? WHERE id=?";
+		$queryexecute = $conection->prepare($query);
+		$queryexecute->execute([$Userdata['emailUser'], $Userdata['Password'], $_SESSION['idUser']]);
+		if($queryexecute)
+		{
+			return $this->successResponseInfo();
+		}
+		else
+		{
+			return $this->emptyResponse();
+		}
+    	// return json_encode($datauser);
 		
 	}
 }

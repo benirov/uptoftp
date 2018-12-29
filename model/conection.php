@@ -3,6 +3,7 @@ namespace model\Conection;
 
 require_once('../config.php');
 use \PDO;
+session_start();
 
 
 class Conection 
