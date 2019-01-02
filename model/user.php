@@ -36,8 +36,7 @@ class user extends conection
 		$query->execute();
 		if($query->rowCount() > 0)
 		{
-			$datauser = $query->fetch(PDO::FETCH_ASSOC);
-			session_start();
+			$datauser = $query->fetch(PDO::FETCH_ASSOC);			
 			$_SESSION['idUser'] = $datauser['id'];
 			$_SESSION['user'] = $datauser['user'];
 			// var_dump($query->fetch(PDO::FETCH_ASSOC));

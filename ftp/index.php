@@ -9,7 +9,7 @@ $renderHTML = new renderHTML;
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Administrar FTP | UpToFTP</title>
+  <title>FTP | UptoFTP</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -30,6 +30,21 @@ $renderHTML = new renderHTML;
 
   <!-- style app -->
   <link rel="stylesheet" href="../css/app.css">
+  <style type="text/css">
+    .btn-app {
+   /* border-radius: 3px!important;
+    position: relative!important;
+     padding: 0!important; 
+    margin: 0 0 10px 10px!important;
+     min-width: 0!important; 
+     height: 0!important; 
+    text-align: center!important;
+    color: #666!important;
+    border: 1px solid #ddd!important;
+    background-color: #f4f4f4!important;
+    font-size: 12px!important;*/
+    }
+  </style>
   <!-- Morris chart -->
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -62,72 +77,60 @@ $renderHTML = new renderHTML;
         <div class="container">
           <form id="formUser" class="form-horizontal">
             <div class="box-body container">
-              <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                    <div class="form-group">
-                      <label for="ftp" class="control-label">Cuentas FTP</label>
-                        <select id="ftp"  class="select2" style="width: 100%">
-                          <option value=0>seleccione una cuenta FTP</option>
-                        </select>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <div class="form-group">
+                          <label for="ftp" class="control-label">Cuentas FTP</label>
+                            <select id="ftp"  class="select2" style="width: 100%">
+                              <option value=0>seleccione una cuenta FTP</option>
+                            </select>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <div class="box-footer">
-                      <label for="ftp" class="control-label"></label>
-                      <button id="addFTP" type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#ModalAddFTP"><i class="fas fa-plus-square"></i></button>
-                    </div>
-                  </div>
-                  
-                </div>
               </div>
-              <div id="divForm" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="form-group">
-                    <label for="hostName" class="col-sm-5 control-label">Host Name</label>
+              <div class="row">
+                <div id="divTable" class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                      <input type="text" class="form-control Requerido" id="hostName" name="hostName" placeholder="Host Name">
-                      <span for="hostName" class="help-block text-muted"></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="form-group">
-                  <label for="Password" class="col-sm-2 control-label">Password</label>
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h3 class="box-title routeDir">FTP Directory</h3>
+                    <a class="btn" data-toggle="tooltip" data-placement="top" title="Agregar archivo">
+                      <i class="fas fa-plus pointer"></i>
+                    </a>
+                    <a class="btn" data-toggle="tooltip" data-placement="top" title="Agregar carpeta">
+                      <i class="fas fa-folder-plus pointer"></i>
+                    </a>
 
-                  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <input type="password" class="form-control Requerido RegClave" id="Password" name="Password" placeholder="Password">
-                    <span for="Password" class="help-block text-muted"></span>
-                  </div>
-                  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hidden">
-                    <input type="password" class="form-control Requerido " id="idFtp" name="idFtp" placeholder="idUser">
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="form-group">
-                  <label for="UserName" class="col-sm-5 control-label">User name</label>
 
-                  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <input type="text" class="form-control Requerido RegUserFTP" id="UserName" name="UserName" placeholder="UserName">
-                    <span for="UserName" class="help-block text-muted"></span>
                   </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="form-group">
-                  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <button id="deleteFTP" type="button" class="btn btn-info pull-right"><i class="fas fa-trash-alt"></i></i>Eliminar</button>
+            <!-- /.box-header -->
+                  <div class="box-body">
+                    <table id="tableFTP" class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <th style="width: 10px">#</th>
+                          <th>Date</th>
+                          <th>Name</th>
+                          <th>Size</th>
+                          <th>Type</th>
+                          <th>Actions</th>                        
+                      </tr>
+                    </tbody>
+                  </table>
                   </div>
-                </div>
+            <!-- /.box-body -->
+                  <div class="box-footer clearfix">
+                    
+                  </div>
               </div>
+              
             </div>
+              </div>
           </div>
         </form>
-      </div>
-      <div class="box-footer">
-        <button id="save" type="button" class="btn btn-info pull-right">Guardar</button>
       </div>
       </div>
     </section>
@@ -339,70 +342,6 @@ $renderHTML = new renderHTML;
       <div class="double-bounce2"></div>
     </div>
   </div>
-  <!-- Modal Add FTP -->
-  <div class="modal fade" id="ModalAddFTP"tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Agregar Cuenta FTP</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form id="formAddFTP" class="form-horizontal">
-            <div class="wrapper">
-              <div  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="form-group">
-                    <label for="hostNameFTP" class="col-sm-5 control-label">Host Name</label>
-
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                      <input type="text" class="form-control Requerido" id="hostNameFTP" name="hostName" placeholder="Host Name">
-                      <span for="hostNameFTP" class="help-block text-muted"></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="form-group">
-                  <label for="PasswordFTP" class="col-sm-2 control-label">Password</label>
-
-                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <input type="password" class="form-control Requerido RegClave" id="PasswordFTP" name="Password" placeholder="Password">
-                    <span for="PasswordFTP" class="help-block text-muted"></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="form-group">
-                  <label for="UserNameFTP" class="col-sm-5 control-label">User name</label>
-
-                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <input type="text" class="form-control Requerido RegUserFTP" id="UserNameFTP" name="UserName" placeholder="UserName">
-                    <span for="UserNameFTP" class="help-block text-muted"></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="form-group">
-                  <label for="" class="col-sm-5 control-label">&nbsp</label>
-
-                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <button id="testingFTP" type="button" class="btn btn-primary">Testear conexion</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </form>
-        </div>
-        <div class="modal-footer">
-          <button id="SaveFTP" type="button" class="btn btn-primary">Guardar</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- Modal Add FTP -->
 </div>
 <!-- ./wrapper -->
 
@@ -426,6 +365,12 @@ $renderHTML = new renderHTML;
 <!-- Select2 -->
 <script src="../lib/AdminLTE-2.4.5/bower_components/select2/dist/js/select2.full.min.js"></script>
 
+<!-- DATATABLE   -->
+
+<script src="../lib/AdminLTE-2.4.5/bower_components/datatables.net/js/jquery.dataTables.js"></script>
+
+<!-- DATATABLE   -->
+
 <!-- notify -->
 <script src="../lib/notify.js"></script>
 <script src="../js/util.js"></script>
@@ -434,16 +379,29 @@ $renderHTML = new renderHTML;
 <script>
   $(document).ready(function()
   {
+    $('[data-toggle="tooltip"]').tooltip()
     var ftp = new Ftp;
-    ftp.getFtpAcount(0, ftp);
+    ftp.getFtpAcount();
 
     $("#ftp").change(function()
     {
+      console.log($(this).val())
       if($(this).val() != 0 && $(this).val() != '')
       {
-        ftp.getDataUser($(this).val());
+        ftp.getDataUser($(this).val(), ftp);
+      }
+    });
+
+    $("#tableFTP > tbody").on("click", function()
+    {
+      
+      if($(this).find("td:eq(4)").text() == 'folder')
+      {
+
       }
     })
+
+
 
     $("#addFTP").click(function()
     {
@@ -463,17 +421,30 @@ $renderHTML = new renderHTML;
       })
     });
 
-    $("#SaveFTP").click(function()
+    $(document).on( "click",  ".actionsFTP",  function ()
     {
-      EvalRegV2($("#formAddFTP"), function(bResp)
+      console.log("aqui");
+      switch($(this).data('type'))
       {
-        if(bResp)
-        {
-          let data = SerializeForm($("#formAddFTP"));
-          Formdata = BuildForm(data);
-          ftp.saveDataUser(Formdata, ftp);
-        }
-      })
+        case '1':
+
+        break;
+
+        case '2':
+        
+        break;
+
+        case '3':
+        
+        break;
+
+        case '4':
+        
+        break;
+
+        default:
+
+      }
     });
 
     $("#deleteFTP").click(function()

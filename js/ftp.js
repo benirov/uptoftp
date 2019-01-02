@@ -1,7 +1,7 @@
 class Ftp
 {
 
-	getFtpAcount()
+	getFtpAcount(option, ftp)
 	{
 		$.when(getQuery('../ajax/getFtpAccount.php', 'json', '', true, true)).done(function(sResp)
 		{
@@ -10,6 +10,13 @@ class Ftp
 				$('#ftp').empty();
 				$("#ftp").append("<option value='0' selected>Seleccione una cuenta FTP</option>");
 				$("#ftp").select2({ data: sResp.data});
+				if(option == 2)
+				{
+					// console.log(Ftp.getDirectoryFTP(sResp.data))
+					
+					
+					// Ftp.getDirectoryFTP(sResp.data)
+				}
 				// $("#ftp").append("<option value='0' selected>Seleccione una cuenta FTP</option>");
 			}
 			else
@@ -19,17 +26,18 @@ class Ftp
 			}
 		})
 	}
-	getDataUser(ftp)
+	getDataUser(ftpId, ftp)
 	{
-		$.when(getQuery('../ajax/getInfoUser.php', 'json', 'ftp='+ftp, true, true)).done(function(sResp)
+		$.when(getQuery('../ajax/getInfoUser.php', 'json', 'ftp='+ftpId, true, true)).done(function(sResp)
 		{
 			if(sResp.code == 200)
 			{
-				$("#idFtp").val(sResp.data.id);
-				$("#hostName").val(sResp.data.hostftp);
-				$("#Password").val(sResp.data.passwordftp);
-				$("#UserName").val(sResp.data.userftp);
-				$("#divForm").removeClass("hidden");
+				// $("#idFtp").val(sResp.data.id);
+				// $("#hostName").val(sResp.data.hostftp);
+				// $("#Password").val(sResp.data.passwordftp);
+				// $("#UserName").val(sResp.data.userftp);
+				// $("#divForm").removeClass("hidden");
+				ftp.getDirectoryFTP(sResp.data)
 				
 			}
 			else
@@ -113,6 +121,46 @@ class Ftp
 			{
 				notify("Error al elimianar datos de cuentaFTP", "error");	
 			}
+
+		})
+	}
+
+	// Directorios FTP
+
+	getDirectoryFTP(data)
+	{
+		console.log(data);
+		console.log("Directorios")
+		$.when(getQuery('../ajax/getDirectoryFTP.php', 'json', 'host='+data.hostftp+'&user='+data.userftp+'&userP='+data.passwordftp, true, true)).done(function(sResp)
+		{
+			console.log(sResp.data)
+			$.each(sResp.data, function(i, val)
+			{
+				let type = "file";
+				if(val.type != '1')
+				{
+					type = "folder";
+				}
+				// console.log(val);
+				$("#tableFTP tbody").append(
+					'<tr>'+
+					'<td>'+i+'</td>'+
+					'<td>'+val.date+'</td>'+
+					'<td>'+val.name+'</td>'+
+					'<td>'+val.size+'</td>'+
+					'<td>'+type+'</td>'+
+					'<td>'+
+                          '<div>'+
+                            '<a class="btn  actionsFTP" data-toggle="tooltip" data-placement="top" title="Eliminar">'+
+                              '<i class="fas fa-trash-alt pointer"></i>'+
+                            '</a>'+
+                            '<a class="btn  actionsFTP" data-toggle="tooltip" data-placement="top" title="Descargar">'+
+                              '<i class="fas fa-file-download pointer"></i>'+
+                            '</a>'+
+                          '</div>'+
+                        '</td>'+
+                        '</tr>');
+			})
 
 		})
 	}

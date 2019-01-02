@@ -7,6 +7,10 @@
 {
 	background-color: #87a8d0;
 }
+.color2
+{
+  color: #16a085!important;
+}
 
 .fontIndie
 {
@@ -14,10 +18,10 @@
 }
 
 
-.info
+.infoHeader
 {
   width: 100%!important;
-  height: 100%!important;
+  height : 60vh;
   background-color: #87a8d0;
 }
 
@@ -55,7 +59,7 @@
 
 
 body {
-  background:#34495e;
+  background:#fff;
 }
 
 .conteneur {

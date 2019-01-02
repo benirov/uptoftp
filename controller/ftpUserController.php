@@ -138,9 +138,22 @@ class ftpUserController extends ftp
 		}
 	}
 
-	public function getDirectorytFtp($data)
+	public function getDirectorytFtp()
 	{
-
+		$connect = ftp_connect($_SESSION["hostName"]);
+		if($connect)
+		{
+			if(@ftp_login($connect, $_SESSION["user"], $_SESSION["userP"]))
+			{
+				$buff = ftp_rawlist($connect, '/');
+				$items = array(); 
+				foreach ($buff as $child) { 
+	                $chunks = preg_split("/\s+/", $child);
+	                array_push($items, ['date' => $chunks[0], 'size' => $chunks[2], 'name' => $chunks[3], 'type' => $chunks[0]{0}]);
+            	} 
+            	return $this->successResponse($items);
+			}
+		}
 	}
 }
 

@@ -292,8 +292,8 @@ class classHTML
 					      <!-- sidebar menu: : style can be found in sidebar.less -->
 					      <ul class="sidebar-menu" data-widget="tree">
 					        <li class="header colorBlack colorMain2">Menu</li>
-					        <li class="treeview  bordermenu colorBlack">
-					          <a href="../view_ftp/">
+					        <li class="bordermenu colorBlack">
+					          <a href="../ftp/">
 					            <i class="fa fa-network-wired"></i>
 					            <span class="colorBlack">FTP</span>
 					          </a>
